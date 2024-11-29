@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenue - Vingtaine</title>
+  <link rel="stylesheet" href="home_styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenue sur Vingtaine <span id="user-name"></span>!</h1>
+    <div class="user-info">
+     <!-- <img id="user-icon" src="" alt="Icône de l'utilisateur" /> -->
+      <p id="user-email"></p>
+    </div>
+    <button id="logout" class="btn">Déconnexion</button>
+    
+    <!-- Ajouter le bouton pour supprimer le compte -->
+    <button id="delete-account" class="btn btn-danger">Supprimer mon compte</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js" type="module"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js" type="module"></script>
+  <script type="module" src="home_script.js"></script>
+</body>
+</html>
