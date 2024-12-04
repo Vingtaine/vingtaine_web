@@ -62,7 +62,7 @@ document.getElementById("facebook-login").addEventListener("click", () => {
     });
 });
 
-document.getElementById("email-login-form").addEventListener("submit", (e) => {
+document.getElementById("user-pwd-login").addEventListener("click", (e) => {
   e.preventDefault();
 
   const email = document.getElementById("email").value;
