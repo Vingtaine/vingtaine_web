@@ -1,7 +1,7 @@
 export const config = {
     "vingtaine": {
-        "webapiBaseUrl": "https://webapi.vingtaine.app"
-        // "webapiBaseUrl": "https://dev.local.com:5001"
+        // "webapiBaseUrl": "https://webapi.vingtaine.app"
+        "webapiBaseUrl": "https://dev.local.com:5001"
     },
     "firebase": {
         "apiKey": "AIzaSyDqCbKd-MmrFHN2L_c8tvjlvkCJxPRB0WU",
