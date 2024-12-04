@@ -17,6 +17,7 @@ async function getUserProfile(token) {
   if (!response.ok) {
     if (response.status == 404) {
       swal("Compte introuvable", "Veuillez utiliser l'application mobile pour créer votre compte.", "info");
+      return;
     }
     throw new Error("Erreur lors de l'obtention du profil");
   }
