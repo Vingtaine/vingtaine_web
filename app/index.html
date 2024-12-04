@@ -1,19 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vingtaine - Connexion</title>
-  <link rel="stylesheet" href="login_styles.css">
+  <link rel="stylesheet" href="css/login_styles.css">
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js" type="module"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js" type="module"></script>
-  <script src="login_script.js" type="module" defer></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
+
 <body>
+  <script>
+    var version = new Date().getTime();
+    var script = document.createElement("script");
+    script.type = "module";
+    script.src = "js/login_script.js?=" + version;
+    document.body.appendChild(script);
+
+    script.src = "js/config.js?=" + version;
+    document.body.appendChild(script);  
+  </script>
   <div class="container">
-    <div class="logo-container"> 
-      <img src="images/Selo_vingt.png" alt="Logo de l'entreprise" class="logo">
+    <div class="logo-container">
+      <img src="images/icon.png" alt="Vingtaine" class="logo">
     </div>
 
     <h1>Bienvenue sur Vingtaine</h1>
@@ -30,4 +41,5 @@
     </div>
   </div>
 </body>
+
 </html>

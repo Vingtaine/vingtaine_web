@@ -1,0 +1,13 @@
+services:
+  nginx:
+    image: nginx
+    working_dir: /workspace
+    ports:
+      - 8080:80
+      - 5005:443
+    volumes: 
+      - ..:/workspace:cached
+      - ../.server/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ../.server/cert/dev.local.com.crt:/etc/nginx/cert/dev.local.com.crt
+      - ../.server/cert/dev.local.com.key:/etc/nginx/cert/dev.local.com.key
+      - ../app:/usr/share/nginx/html
