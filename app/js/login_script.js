@@ -15,7 +15,7 @@ async function getUserProfile(token) {
   });
 
   if (!response.ok) {
-    if (response.status == 404){
+    if (response.status == 404) {
       swal("Compte introuvable", "Veuillez utiliser l'application mobile pour créer votre compte.", "info");
     }
     throw new Error("Erreur lors de l'obtention du profil");
@@ -30,10 +30,14 @@ async function handleSignIn(auth) {
   const user = auth.currentUser;
   const token = await user.getIdToken();
 
-  var profile = await getUserProfile(token);
+  try {
+    var profile = await getUserProfile(token);
 
-  if (profile.id) {
-    window.location.href = 'home.html';
+    if (profile.id) {
+      window.location.href = 'home.html';
+    }
+  } catch (error) {
+    swal("Erreur", "Erreur de connexion, veuillez réssayer plus tard.", "error");
   }
 }
 
@@ -46,6 +50,7 @@ document.getElementById("google-login").addEventListener("click", () => {
       handleSignIn(auth);
     })
     .catch(error => {
+      swal("Erreur", "Erreur de connexion, veuillez réssayer plus tard.", "error");
       console.error("Erreur lors de la connexion avec Google", error);
     });
 });
@@ -58,6 +63,7 @@ document.getElementById("facebook-login").addEventListener("click", () => {
       handleSignIn(auth);
     })
     .catch(error => {
+      swal("Erreur", "Erreur de connexion, veuillez réssayer plus tard.", "error");
       console.error("Erreur lors de la connexion Facebook", error);
     });
 });
@@ -68,11 +74,19 @@ document.getElementById("user-pwd-login").addEventListener("click", (e) => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
+  var isValid = email && password;
+
+  if (!isValid) {
+    swal("Veuillez saisir le nom d'utilisateur et le mot de passe.");
+    return;
+  }
+
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
       handleSignIn(auth);
     })
     .catch(error => {
+      swal("Nom d'utilisateur ou mot de passe invalide.");
       console.error("Erreur lors de la connexion avec e-mail", error);
     });
 });
