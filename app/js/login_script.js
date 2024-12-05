@@ -29,6 +29,9 @@ async function getUserProfile(token) {
 }
 
 async function handleSignIn(auth) {
+
+  AmagiLoader.show();
+
   const user = auth.currentUser;
   const token = await user.getIdToken();
 
@@ -41,6 +44,8 @@ async function handleSignIn(auth) {
   } catch (error) {
     swal("Erreur", "Erreur de connexion, veuillez réssayer plus tard.", "error");
   }
+
+  AmagiLoader.hide();
 }
 
 document.getElementById("google-login").addEventListener("click", () => {

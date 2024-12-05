@@ -47,7 +47,7 @@ document.getElementById("delete-account").addEventListener("click", async () => 
 
   const confirmation = await swal({
     title: "Attention!",
-    text: "\n\nVoici les données qui seront supprimées:\n\nNom et prénom, addresse courriel, mot de passe, les boissons sauvegardées dans vos favoris.\n\nÊtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.",
+    text: "\n\nVoici les données qui seront supprimées:\n\nVotre compte, nom et prénom, addresse courriel, ainsi que vos favoris dans l'app.\n\nÊtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -56,12 +56,19 @@ document.getElementById("delete-account").addEventListener("click", async () => 
   if (!confirmation) return;
 
   try {
+
+    AmagiLoader.show();
+    
     const token = await user.getIdToken();
     await deleteAccountFromBackend(token);
     await deleteUser(user);
     await swal("Compte supprimé", "Votre compte a été supprimé avec succès.", "success");
     window.location.href = "/";
+
+    AmagiLoader.hide();
+    
   } catch (error) {
+    AmagiLoader.hide();
     console.error("Erreur lors de la suppression :", error);
     swal("Erreur", "Impossible de supprimer le compte. Veuillez réessayer plus tard.", "error");
   }
