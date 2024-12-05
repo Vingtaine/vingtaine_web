@@ -87,7 +87,7 @@ input:focus {
 a {
     color: #007bff;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 11px;
 }
 
 a:hover {
