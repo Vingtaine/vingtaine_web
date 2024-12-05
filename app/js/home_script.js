@@ -47,7 +47,7 @@ document.getElementById("delete-account").addEventListener("click", async () => 
 
   const confirmation = await swal({
     title: "Attention!",
-    text: "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.",
+    text: "\n\nVoici les données qui seront supprimées:\n\nNom et prénom, addresse courriel, mot de passe, les boissons sauvegardées dans vos favoris.\n\nÊtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.",
     icon: "warning",
     buttons: true,
     dangerMode: true,
